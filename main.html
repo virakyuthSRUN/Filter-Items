@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Filter using Javascript</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section>
+        <ul>
+            <li class = "list active" data-filter ="all">All</li>
+            <li class = "list" data-filter ="mobile">Mobile</li>
+            <li class = "list" data-filter ="camera">Camera</li>
+            <li class = "list" data-filter ="watch">Watch</li>
+            <li class = "list" data-filter ="shoe">Shoe</li>
+            <li class = "list" data-filter ="headphone">Headphone</li>
+        </ul>
+        <div class="product">
+            <div class = "itemBox" data-item = "mobile"><img src= "images/mobile1.jpg"></div>
+            <div class = "itemBox" data-item = "camera"><img src= "images/camera1.jpg"></div>
+            <div class = "itemBox" data-item = "watch"><img src= "images/watch1.jpg"></div>
+            <div class = "itemBox" data-item = "shoe"><img src= "images/shoe1.jpg"></div>
+            <div class = "itemBox" data-item = "headphone"><img src= "images/headphone1.jpg"></div>
+
+            <div class = "itemBox" data-item = "mobile"><img src= "images/mobile2.jpg"></div>
+            <div class = "itemBox" data-item = "camera"><img src= "images/camera2.jpg"></div>
+            <div class = "itemBox" data-item = "watch"><img src= "images/watch2.jpg"></div>
+            <div class = "itemBox" data-item = "shoe"><img src= "images/shoe2.jpg"></div>
+            <div class = "itemBox" data-item = "headphone"><img src= "images/headphone2.jpg"></div>
+
+            <div class = "itemBox" data-item = "mobile"><img src= "images/mobile3.jpg"></div>
+            <div class = "itemBox" data-item = "camera"><img src= "images/camera3.jpg"></div>
+            <div class = "itemBox" data-item = "watch"><img src= "images/watch3.jpg"></div>
+            <div class = "itemBox" data-item = "shoe"><img src= "images/shoe3.jpg"></div>
+            <div class = "itemBox" data-item = "headphone"><img src= "images/headphone3.jpg"></div>
+
+            <div class = "itemBox" data-item = "mobile"><img src= "images/mobile4.jpg"></div>
+            <div class = "itemBox" data-item = "camera"><img src= "images/camera4.jpg"></div>
+            <div class = "itemBox" data-item = "watch"><img src= "images/watch4.jpg"></div>
+            <div class = "itemBox" data-item = "shoe"><img src= "images/shoe4.jpg"></div>
+            <div class = "itemBox" data-item = "headphone"><img src= "images/headphone4.jpg"></div>
+
+            <div class = "itemBox" data-item = "mobile"><img src= "images/mobile5.jpg"></div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let list = document.querySelectorAll('.list');
+            let itemBox = document.querySelectorAll('.itemBox');
+
+            list.forEach(function (item) {
+                item.addEventListener('click', function () {
+                    const filter = this.getAttribute('data-filter');
+
+                    list.forEach(function (listItem) {
+                        listItem.classList.remove('active');
+                    });
+
+                    this.classList.add('active');
+
+                    itemBox.forEach(function (box) {
+                        box.style.display = 'none';
+
+                        if (box.getAttribute('data-item') === filter || filter === 'all') {
+                            box.style.display = 'block';
+                        }
+                    });
+                });
+            });
+        });
+
+    </script>
+</body>
+</html>
